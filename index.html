@@ -48,7 +48,7 @@
                             <!-- Заголовок формы -->
                             <h1 class="h2 mb-4">Конвертер валют</h1>
 
-                            <!-- Блок для размещения курсов валют -->
+                            <!-- Блок для размещения курсов валют (1-я строка) -->
                             <div class="currency">
 
                                 <!-- Карточка для отображения курса USD -->
@@ -68,10 +68,32 @@
                                     <div class="currency-item-value" data-value="EUR">--.--</div>
                                 </div>
 
+                            </div>
+
+                            <!-- Блок для размещения курсов валют (2-я строка) -->
+                            <div class="currency">
+
                                 <!-- Карточка для отображения курса GBP -->
                                 <div class="currency-item card card-body">
                                     <div class="currency-item-title">Курс GBP</div>
                                     <div class="currency-item-value" data-value="GBP">--.--</div>
+                                </div>
+
+                                <!-- Карточка для отображения курса JPY -->
+                                <div class="currency-item card card-body">
+
+                                    <!-- Заголовок карточки -->
+                                    <div class="currency-item-title">Курс JPY</div>
+
+                                    <!-- Значение курса валюты -->
+                                    <div class="currency-item-value" data-value="JPY">--.--</div>
+
+                                </div>
+
+                                <!-- Карточка для отображения курса CNY -->
+                                <div class="currency-item card card-body">
+                                    <div class="currency-item-title">Курс CNY</div>
+                                    <div class="currency-item-value" data-value="CNY">--.--</div>
                                 </div>
 
                             </div>
@@ -87,13 +109,17 @@
 
                                     <!-- Раскрывающийся список для выбора валюты -->
                                     <select 
-                                        disabled 
                                         class="form-control" 
                                         name="give-currency" 
                                         id="give-currency">
 
                                         <!-- Элементы раскрывающегося списка -->
                                         <option value="RUB" selected>RUB - Рубль</option>
+                                        <option value="USD">USD - Доллар</option>
+                                        <option value="EUR">EUR - Евро</option>
+                                        <option value="GBP">GBP - Фунт</option>
+                                        <option value="JPY">JPY - Йена</option>
+                                        <option value="CNY">CNY - Юань</option>
 
                                     </select>
 
@@ -112,9 +138,12 @@
                                         id="get-currency">
 
                                         <!-- Элементы раскрывающегося списка -->
-                                        <option value="USD">USD - Доллар</option>
+                                        <option value="RUB">RUB - Рубль</option>
+                                        <option value="USD" selected>USD - Доллар</option>
                                         <option value="EUR">EUR - Евро</option>
                                         <option value="GBP">GBP - Фунт</option>
+                                        <option value="JPY">JPY - Йена</option>
+                                        <option value="CNY">CNY - Юань</option>
 
                                     </select>
 
