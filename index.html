@@ -1,0 +1,173 @@
+<!-- Объявляем, что используем HTML -->
+<!DOCTYPE html>
+
+<!-- Главный блок с HTML-кодом -->
+<html lang="ru">
+
+    <!-- Служебная информация -->
+    <head>
+
+        <!-- Кодировка текста -->
+        <meta charset="UTF-8">
+
+        <!-- Настраиваем масштабирование -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Заголовок страницы -->
+        <title>Конвертер валют</title>
+
+        <!-- Подключаем CSS-стили -->
+        <link rel="stylesheet" href="styles/main.css">
+
+        <!-- Подключаем стили из фреймворка Bootstrap -->
+        <link 
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+            rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+            crossorigin="anonymous">
+
+    </head>
+
+    <!-- Тело страницы -->
+    <body>
+
+        <!-- Создаём Bootstrap-контейнер (с отступами по краям) и задаём ему верхний и нижний отступы -->
+        <div class="container pt-5 pb-5">
+
+            <!-- Создаём строку и выравниваем внутренние элементы по центру -->
+            <div class="row justify-content-center">
+                
+                <!-- Создаём столбец, занимающий половину контейнера -->
+                <div class="col-6">
+                    
+                    <!-- Создаём карточку с заданными внутренними отступами -->
+                    <div class="card p-3">
+
+                        <!-- Форма для конвертера валют -->
+                        <form>
+
+                            <!-- Заголовок формы -->
+                            <h1 class="h2 mb-4">Конвертер валют</h1>
+
+                            <!-- Блок для размещения курсов валют -->
+                            <div class="currency">
+
+                                <!-- Карточка для отображения курса USD -->
+                                <div class="currency-item card card-body">
+
+                                    <!-- Заголовок карточки -->
+                                    <div class="currency-item-title">Курс USD</div>
+
+                                    <!-- Значение курса валюты -->
+                                    <div class="currency-item-value" data-value="USD">--.--</div>
+
+                                </div>
+
+                                <!-- Карточка для отображения курса EUR -->
+                                <div class="currency-item card card-body">
+                                    <div class="currency-item-title">Курс EUR</div>
+                                    <div class="currency-item-value" data-value="EUR">--.--</div>
+                                </div>
+
+                                <!-- Карточка для отображения курса GBP -->
+                                <div class="currency-item card card-body">
+                                    <div class="currency-item-title">Курс GBP</div>
+                                    <div class="currency-item-value" data-value="GBP">--.--</div>
+                                </div>
+
+                            </div>
+
+                            <!-- Строка для размещения раскрывающихся списков выбора валют -->
+                            <div class="row mb-1">
+
+                                <!-- Столбец с действием "Отдаю" -->
+                                <div class="col">
+
+                                    <!-- Метка с названием для раскрывающегося списка -->
+                                    <label for="give-currency">Отдаю:</label>
+
+                                    <!-- Раскрывающийся список для выбора валюты -->
+                                    <select 
+                                        disabled 
+                                        class="form-control" 
+                                        name="give-currency" 
+                                        id="give-currency">
+
+                                        <!-- Элементы раскрывающегося списка -->
+                                        <option value="RUB" selected>RUB - Рубль</option>
+
+                                    </select>
+
+                                </div>
+
+                                <!-- Столбец с действием "Получаю" -->
+                                <div class="col">
+
+                                    <!-- Метка с названием для раскрывающегося списка -->
+                                    <label for="get-currency">Получаю:</label>
+
+                                    <!-- Раскрывающийся список для выбора валюты -->
+                                    <select 
+                                        class="form-control" 
+                                        name="get-currency" 
+                                        id="get-currency">
+
+                                        <!-- Элементы раскрывающегося списка -->
+                                        <option value="USD">USD - Доллар</option>
+                                        <option value="EUR">EUR - Евро</option>
+                                        <option value="GBP">GBP - Фунт</option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Строка для ввода и вывода количества валюты -->
+                            <div class="row">
+
+                                <!-- Столбец для ввода количества отдаваемой валюты -->
+                                <div class="col">
+
+                                    <!-- Поле ввода количества отдаваемой валюты -->
+                                    <input class="form-control" type="number" id="input">
+
+                                </div>
+
+                                <!-- Столбец для ввода количества получаемой валюты -->
+                                <div class="col">
+
+                                    <!-- Поле ввода количества получаемой валюты -->
+                                    <input class="form-control" type="number" id="output">
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Футер -->
+        <footer class="footer d-flex justify-content-center">
+
+            <!-- Ссылка на GitHub -->
+            <a class="footer-link" 
+                href="https://github.com/KlimVladMaks/currency-converter" 
+                target="_blank">
+                GitHub
+            </a>
+
+        </footer>
+
+        <!-- Подключаем скрипты -->
+        <script src="scripts/main.js"></script>
+        
+    </body>
+
+</html>
