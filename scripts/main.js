@@ -91,12 +91,6 @@ async function setGetCurrency() {
     // Получаем количество отдаваемой валюты
     let giveCurrencyCount = input.value;
 
-    // Если количество отдаваемой валюты не задано, устанавливаем его равным нулю
-    if (giveCurrencyCount === "") {
-        input.value = 0;
-        giveCurrencyCount = 0;
-    }
-
     // Рассчитываем и задаём количество получаемой валюты
     output.value = 
         ((currencyRates[giveCurrencyKey].Value * giveCurrencyCount) / currencyRates[getCurrencyKey].Value).toFixed(2);
