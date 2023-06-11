@@ -1,9 +1,5 @@
-// Получаем элементы со значениями основных валют
-valueUSD = document.querySelector("[data-value='USD']");
-valueEUR = document.querySelector("[data-value='EUR']");
-valueGBP = document.querySelector("[data-value='GBP']");
-valueJPY = document.querySelector("[data-value='JPY']");
-valueCNY = document.querySelector("[data-value='CNY']");
+// Массив с основными валютами, для которых нужно отобразить котировки в карточках
+let mainCurrency = ["USD", "EUR", "GBP", "JPY", "CNY"];
 
 // Получаем поле ввода количества отдаваемой валюты
 input = document.querySelector("#input");
@@ -33,13 +29,29 @@ async function updateCurrencyRates() {
     // Получаем данные о курсах валют
     const currencyData = await getCurrencyRates();
 
-    // Устанавливаем значения для основных курсов валют
-    // (Из-за некорректности API делим курс йены на 100 для приведения к корректному значению)
-    valueUSD.textContent = currencyData.Valute.USD.Value.toFixed(2);
-    valueEUR.textContent = currencyData.Valute.EUR.Value.toFixed(2);
-    valueGBP.textContent = currencyData.Valute.GBP.Value.toFixed(2);
-    valueJPY.textContent = (currencyData.Valute.JPY.Value / 100).toFixed(2);
-    valueCNY.textContent = currencyData.Valute.CNY.Value.toFixed(2);
+    // Перебираем все основные валюты
+    for (let currency of mainCurrency) {
+
+        // Получаем элемент, хранящий значение итерируемой валюты
+        const currencyItemValue = document.querySelector(`[data-value="${currency}"]`);
+
+        // Устанавливаем значение для курса валюты
+        currencyItemValue.textContent = currencyData.Valute[currency].Value.toFixed(2);
+
+        // Из-за некорректности API делим курс йены на 100 для приведения к корректному значению
+        if (currency === "JPY") {
+            currencyItemValue.textContent = (currencyData.Valute[currency].Value / 100).toFixed(2);
+        }
+
+        // Задаём цвет значения котировок валюты в зависимости от их роста или падения
+        if (currencyData.Valute[currency].Value > currencyData.Valute[currency].Previous) {
+            currencyItemValue.classList.remove("bottom");
+            currencyItemValue.classList.add("top");
+        } else if (currencyData.Valute[currency].Value < currencyData.Valute[currency].Previous) {
+            currencyItemValue.classList.remove("top");
+            currencyItemValue.classList.add("bottom");
+        }
+    }
 }
 
 // При вводе значения в поле ввода вызываем функцию
